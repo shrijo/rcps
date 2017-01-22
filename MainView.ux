@@ -1,80 +1,10 @@
 <App>
+	<Router ux:Name="router" />
 
-		<Text ux:Class="Cardtitle" Color="#666" Margin="20, 15, 20, 5" FontSize="24" TextWrapping="Wrap" />
-
-		<Text ux:Class="Cardtext" Color="#999" Margin="20, 0" FontSize="13" TextWrapping="Wrap" />
-
-		<StackPanel ux:Class="Card" ux:Name="self" Background="#ffffff" Width="280" Height="400" Margin="20" Opacity="0.2">
-
-			<Scaling ux:Name="pageScaling" Factor="0.8" />
-
-			<EnteringAnimation Scale="0.65">
-			    <Move X="-1.4" RelativeTo="ParentSize" Duration="0.5"/>
-			</EnteringAnimation>
-
-			<ExitingAnimation Scale="0.65">
-			    <Move X="1.4" RelativeTo="ParentSize" Duration="0.5"/>
-			</ExitingAnimation>
-			
-			<ActivatingAnimation>
-				<Change self.Opacity="1" Duration="0.5"/>
-				<Change pageScaling.Factor="1" Duration="0.5" />
-			</ActivatingAnimation>
-
-			<DropShadow Angle="90" Color="#00000040" Size="10" Distance="5"></DropShadow>
-
-			<Image Height="280" Width="280" Background="#33ddee"></Image>
-			<Cardtitle Value="{name}" ></Cardtitle>
-			<Cardtext Value="{description}" ></Cardtext>
-			
-		</StackPanel>
-
-	<Panel Background="#f6f6f6">
-
-		<JavaScript>
-			var Observable = require("FuseJS/Observable");
-
-			var name = Observable();
-			var description = Observable();
-            var dbData = Observable();
-
-			fetch('https://deels-e8257.firebaseio.com/recipes.json', {
-            	method: 'GET',
-                cache: 'default',
-                headers: { "Content-type": "application/json"}
-            })
-			.then(function(result) {
-				if (result.status !== 200) {
-					console.log("Something went wrong :(");
-					return;}
-				return result.json();
-				})
-                        
-			.then(function(data) {
-				var keys = Object.keys(data);
-				keys.forEach(function(key, index) {
-					if (index >= dbData.length) {
-						var value = data[key];
-						dbData.add(value);
-					}
-				})
-			});
-
-			module.exports = {
-				name: name,
-				description: description,
-				dbData: dbData
-			};
-
-		</JavaScript>
-
-		<LinearNavigation ux:Name="nav">
-			<NavigationMotion GotoEasing="QuadraticOut" GotoDuration="0.3" />
-		</LinearNavigation>
-			<SwipeNavigate SwipeDirection="Left"/>
-
-			<Each Items="{dbData}">
-				<Card />
-			</Each>
-	</Panel>
+	<ClientPanel>
+		<Navigator DefaultPath="cardsOverview">
+			<CardsOverview ux:Template="cardsOverview" router="router" />
+			<CreateRecipe ux:Template="createRecipe" router="router" />
+		</Navigator>
+	</ClientPanel>
 </App>

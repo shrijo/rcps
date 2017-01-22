@@ -1,0 +1,10 @@
+<Page ux:Class="CreateRecipe">
+
+	<Router ux:Dependency="router" />
+
+	<JavaScript File="CreateRecipe.js" />
+
+	<StackPanel Background="#ff33ff">
+		<Button Text="back" Clicked="{goBack}" />
+	</StackPanel>
+</Page>
