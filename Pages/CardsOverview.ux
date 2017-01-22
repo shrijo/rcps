@@ -1,5 +1,10 @@
 <Page ux:Class="CardsOverview" Background="#f6f6f6">
 
+	<Transition >
+		<Move Y="0" RelativeTo="ParentSize" Duration="0.5"/>
+	</Transition>
+	
+
 	<JavaScript File="CardsOverview.js" />
 	
 	<Router ux:Dependency="router" />
@@ -49,7 +54,7 @@
 	</Panel>
 
 	<DockPanel Alignment="Bottom" Background="#dddddd00" Height="60px">
-		<Button Text="+" Clicked="{goToCreateRecipe}" />
+		<Button Text="+ add Recipe" Clicked="{goToCreateRecipe}" />
 	</DockPanel>
 	</Grid>
 </Page>

@@ -1,10 +1,59 @@
-<Page ux:Class="CreateRecipe">
+<Page ux:Class="CreateRecipe" Background="#f6f6f6">
+
+	<Transition >
+		<Move Y="1" RelativeTo="ParentSize" Duration="0.2" Easing="QuinticIn"/>
+	</Transition>
 
 	<Router ux:Dependency="router" />
 
 	<JavaScript File="CreateRecipe.js" />
 
-	<StackPanel Background="#ff33ff">
-		<Button Text="back" Clicked="{goBack}" />
-	</StackPanel>
+	<Grid Rows="250, 1*, 60">
+
+		<TextInput ux:Class="TextInputStyle" PlaceholderColor="#ccc" Padding="0" >
+		<Text ux:Class="Label" FontSize="12" Margin="0, 20, 0, 5"/>
+
+
+		</TextInput>
+
+		<Panel Background="#333333">
+			<Button Text="+ add Image" Alignment="Center"/>
+		</Panel>
+
+		<ScrollView Height="100%" Padding="20, 0, 20, 40">
+			<StackPanel>
+
+				<Label Value="Name"/>
+				<TextInputStyle PlaceholderText="Enter a name for the recipe" />
+
+				<Label Value="Description"/>
+				<TextInputStyle PlaceholderText="Enter a short description for the recipe" />
+
+				<Label Value="Description"/>
+				<TextInputStyle PlaceholderText="Enter a short description for the recipe" />
+
+				<Label Value="Description"/>
+				<TextInputStyle PlaceholderText="Enter a short description for the recipe" />
+
+				<Label Value="Name"/>
+				<TextInputStyle PlaceholderText="Enter a Name for the Recipe" />
+
+				<Label Value="Name"/>
+				<TextInputStyle PlaceholderText="Enter a Name for the Recipe" />
+
+			</StackPanel>
+		</ScrollView>
+
+		<Panel Background="#eeeeee">
+
+			<Rectangle Alignment="Top" Width="100%" Height="1" Color="#c6c6c6"/>
+
+			<Grid Columns="1*,1, 1*" >
+				<Button Height="100%" Width="100%" Alignment="Center" Text="cancel" Clicked="{goBack}" />
+				<Rectangle Color="#c6c6c6"/>
+				<Button Height="100%" Width="100%" Alignment="Center" Text="save" Clicked="{goBack}" />
+			</Grid>
+			
+		</Panel>
+	</Grid>
 </Page>
