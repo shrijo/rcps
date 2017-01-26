@@ -1,5 +1,5 @@
 # rcps
-rcps-app
+Recipe app for an evaluation of fusetools
 
 
 fetch / post data example:  
