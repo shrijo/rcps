@@ -23,11 +23,11 @@
 		<ScrollView Height="100%" Padding="20, 0, 20, 40">
 			<StackPanel>
 
-				<Label Text="Name"/>
+				<Label Value="Name"/>
 				<TextInputStyle Value="{name}" PlaceholderText="Enter a name for the recipe" />
 
-				<Label Text="Description"/>
-				<TextInputStyle PlaceholderText="Enter a short description for the recipe" />
+				<Label Value="Description"/>
+				<TextInputStyle Value="{description}" PlaceholderText="Enter a short description for the recipe" />
 
 			</StackPanel>
 		</ScrollView>

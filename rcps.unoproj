@@ -6,5 +6,7 @@
   ],
   "Includes": [
     "*",
+    "firebaseAPI.js:Bundle",
+    "lib/firebase.js:Bundle"
   ]
 }
