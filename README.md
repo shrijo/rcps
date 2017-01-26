@@ -8,5 +8,3 @@ fetch / post data example:
 
 Setup firebase for realtime database:  
 [https://firebase.google.com/docs/web/setup](https://firebase.google.com/docs/web/setup)
-
-
