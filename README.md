@@ -3,4 +3,4 @@ rcps-app
 
 
 fetch / post data example:
-[https://github.com/LuisRodriguezLD/Fuse-Tags-with-Firebase/blob/master/MainView.ux](LuisRodriguezLD/Fuse-Tags-with-Firebase)
+[LuisRodriguezLD/Fuse-Tags-with-Firebase](https://github.com/LuisRodriguezLD/Fuse-Tags-with-Firebase/blob/master/MainView.ux)
