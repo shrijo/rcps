@@ -7,6 +7,10 @@
 
 	<JavaScript File="CardsOverview.js" />
 	
+	<WhileActive>
+        <Callback Handler="{refresh}" />
+    </WhileActive>
+	
 	<Router ux:Dependency="router" />
 
 	<Grid Rows="1*, auto">
@@ -48,7 +52,7 @@
 			</LinearNavigation>
 				<SwipeNavigate SwipeDirection="Left"/>
 
-				<Each Items="{dbData}">
+				<Each Items="{recipesList}">
 					<Card />
 				</Each>
 	</Panel>

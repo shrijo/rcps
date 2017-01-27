@@ -1,43 +1,25 @@
 var Observable = require("FuseJS/Observable");
+var firebaseAPI = require('firebaseAPI');
 
-var name = Observable();
-var description = Observable();
-var dbData = Observable();
+var recipesList = Observable();
 
 function goToCreateRecipe() {
-    router.push("createRecipe");
+	router.push("createRecipe");
 };
 
-fetch('https://deels-e8257.firebaseio.com/recipes.json', {
-	method: 'GET',
-    cache: 'default',
-    headers: { "Content-type": "application/json"}
-})
+function refresh() {
+	setTimeout(() => {
+		firebaseAPI.get('recipes', recipesList);
+	}, 5000)
+	
+}
 
-	.then(function(result) {
-		if (result.status !== 200) {
-			console.log("Something went wrong :(");
-			return;}
-		return result.json();
-	})
-            
-	.then(function(data) {
-		var keys = Object.keys(data);
-		keys.forEach(function(key, index) {
-			if (index >= dbData.length) {
-				var value = data[key];
-				dbData.add(value);
-			}
-		})
-	});
-
-
+firebaseAPI.get('recipes', recipesList);
 
 
 module.exports = {
-	name: name,
-	description: description,
-	dbData: dbData,
+	refresh,
+	recipesList,
 
-	goToCreateRecipe: goToCreateRecipe
+	goToCreateRecipe
 };
